@@ -1,24 +1,30 @@
 <?php
+// Affichage du détail des erreurs
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+// Définition de la configuration de l'application
+define("DSN", "mysql:host=localhost;port=3309;dbname=bibliotheque;charset=utf8");
+define("DB_USER", "app");
+define("DB_PASS", "123");
+
+
+// Import des bibliothèques
+require "../lib/framework.php";
+require "../lib/database.php";
+
 
 $path = filter_input(INPUT_GET, "path", FILTER_SANITIZE_URL);
-$test = 7;
-var_dump($_SERVER);
 
-?>
+// Table de routage 
+// qui fait correspondre un URL et un nom de fichier
+$routes = [
+    "home"      => "home-controller",
+    "contact"   => "contact-controller",
+    "book-list" => "book-list-controller",
+    "book-search" => "book-search-controller",
+    "book-new" => "book-new-controller"
+];
 
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/bootstrap.min.css">
-</head>
-<body>
-
-<H1>Test</H1>
-
-</body>
-</html>
+// Exécution du routage
+dispatchRoute($path, $routes);

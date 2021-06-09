@@ -1,3 +1,4 @@
 .idea
 app/nodes_modules
 node_modules
+.vagrant

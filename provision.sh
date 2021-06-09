@@ -41,9 +41,12 @@ sudo a2enmod rewrite
 
 # Copie des fichiers de configuration
 sudo cp -f /vagrant-conf/000-default.conf /etc/apache2/sites-available
-sudo cp -f /vagrant-conf/xdebug.ini /etc/php/$PHPVERSION/mods-
+sudo cp -f /vagrant-conf/xdebug.ini /etc/php/$PHPVERSION/mods-available
 
 chmod -R a+rwx /vagrant-conf
+
+# Copie de toutes les config dans la machine vituelle
+sudo /vagrant-conf/update-conf.sh
 
 # lancement d'Apache
 service apache2 restart
