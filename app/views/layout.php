@@ -55,6 +55,12 @@
                             Liste des auteurs
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">
+                            Inscription
+                        </a>
+                    </li>
                 </ul>
                 <form class="d-flex" method="get" action="/book-search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">

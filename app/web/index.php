@@ -29,7 +29,8 @@ $routes = [
     "book-search" => "book-search-controller",
     "book-new" => "book-new-controller",
     "author-list" => "author-list-controller",
-    "author-delete" => "author-delete-controller"
+    "author-delete" => "author-delete-controller",
+    "register" => "register-controller"
 ];
 
 // Exécution du routage
