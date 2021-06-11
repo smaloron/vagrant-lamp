@@ -68,3 +68,20 @@ function renderView(string $viewName, array $data){
 function isPosted(){
     return count($_POST)> 0;
 }
+
+function setFlashMessage(string $message){
+    $_SESSION["message"] = $message;
+}
+
+function hasFlashMessage(): bool{
+    return isset($_SESSION["message"]);
+}
+
+function getFlashMessage(): string {
+    // Récupération du message en session
+    $message = $_SESSION["message"] ?? "";
+    // Suppression du message dans la session
+    unset($_SESSION["message"]);
+    // Retour du message sauvegardé dans une variable
+    return $message;
+}

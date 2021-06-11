@@ -50,6 +50,11 @@
                         Ajouter un livre
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/author-list">
+                            Liste des auteurs
+                        </a>
+                    </li>
                 </ul>
                 <form class="d-flex" method="get" action="/book-search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
@@ -63,6 +68,14 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8 p-2 fond-page">
+
+            <!-- Gestion des messages flash -->
+            <?php if(hasFlashMessage()): ?>
+                <div class="alert alert-warning mt-2 mb-2">
+                    <?= getFlashMessage() ?>
+                </div>
+            <?php endif ?>
+
             <?=$content?>
         </div>
 

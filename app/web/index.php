@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Affichage du détail des erreurs
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -14,7 +16,9 @@ require "../lib/framework.php";
 require "../lib/database.php";
 
 
-$path = filter_input(INPUT_GET, "path", FILTER_SANITIZE_URL);
+$path = filter_input(INPUT_GET, "path", FILTER_SANITIZE_URL) ?? "home";
+
+var_dump($path);
 
 // Table de routage 
 // qui fait correspondre un URL et un nom de fichier
@@ -23,7 +27,9 @@ $routes = [
     "contact"   => "contact-controller",
     "book-list" => "book-list-controller",
     "book-search" => "book-search-controller",
-    "book-new" => "book-new-controller"
+    "book-new" => "book-new-controller",
+    "author-list" => "author-list-controller",
+    "author-delete" => "author-delete-controller"
 ];
 
 // Exécution du routage
