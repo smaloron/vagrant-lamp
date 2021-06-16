@@ -1,0 +1,24 @@
+{% extends "layout.twig" %}
+
+{% block titre %}Home{% endblock %}
+
+
+{% block contenu %}
+    <h1>Home</h1>
+    <h2>Hello {{ name }}</h2>
+    <p>Vous avez {{ age }} ans</p>
+
+    {% if age > 40 %}
+     <p>Vous avez de l'expérience</p>
+    {% endif %}
+
+    <p>Vous aimez les </p>
+    <ul>
+
+        {% for item in fruits %}
+            <li>{{ item }}</li>
+        {% endfor %}
+
+
+    </ul>
+{% endblock %}

@@ -1,11 +1,3 @@
-<?php
-
-$path = filter_input(INPUT_GET, "path", FILTER_SANITIZE_URL);
-$test = 7;
-var_dump($_SERVER);
-
-?>
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -13,12 +5,16 @@ var_dump($_SERVER);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <title>
+        {% block titre %}Mon site{% endblock %}
+    </title>
 </head>
 <body>
+<p> Je suis le layout</p>
 
-<H1>Test</H1>
+<div style="background-color: antiquewhite">
+{% block contenu %}{% endblock %}
+</div>
 
 </body>
 </html>
