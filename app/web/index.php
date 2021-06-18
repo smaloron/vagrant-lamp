@@ -12,13 +12,21 @@ require "../vendor/autoload.php";
 define("VIEW_PATH", "../src/views/");
 define("TWIG_CACHE", "../cache/");
 
+define("DSN", "mysql:host=localhost; port=3309; dbname=formation_php; charset=utf8");
+define("DB_USER", "root");
+define("DB_PASS", "123");
+
 // Le chemin dans l'url
 $path = filter_input(INPUT_GET, "path", FILTER_SANITIZE_URL) ?? "";
 
 $routes = [
     "" => "Home:index",
     "about" => "Home:about",
-    "test" => "Test:hello"
+    "test/insert" => "Test:insert",
+    "test/update" => "Test:update",
+    "test/findOne" => "Test:findOne",
+    "test/findAll" => "Test:findAll",
+    "test/deleteOne" => "Test:deleteOne"
 ];
 
 // Instanciation du routeur
