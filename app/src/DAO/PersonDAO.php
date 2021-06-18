@@ -6,16 +6,7 @@ use MyApp\Model\Person;
 class PersonDAO
 {
 
-    private \PDO $pdo;
 
-    /**
-     * PersonDAO constructor.
-     * @param \PDO $pdo
-     */
-    public function __construct(\PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
 
     /**
      * Insertion d'un objet Person dans la BD
@@ -55,11 +46,7 @@ class PersonDAO
         return $statement->fetchAll();
     }
 
-    public function deleteOneById(int $id){
-        $sql = "DELETE FROM persons WHERE id=?";
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute([$id]);
-    }
+
 
 
 
