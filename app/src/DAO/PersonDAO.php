@@ -3,9 +3,16 @@ namespace MyApp\DAO;
 
 use MyApp\Model\Person;
 
-class PersonDAO
+class PersonDAO extends AbstractDAO
 {
-
+    /**
+     * PersonDAO constructor.
+     */
+    public function __construct(\PDO $pdo, string $tableName)
+    {
+        $this->selectOneQuery = "SELECT * FROM persons";
+        parent::__construct($pdo, $tableName);
+    }
 
 
     /**

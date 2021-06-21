@@ -10,6 +10,8 @@ abstract class AbstractDAO
 
     protected \PDO $pdo;
 
+    protected string $selectOneQuery;
+
     /**
      * PersonDAO constructor.
      * @param \PDO $pdo
